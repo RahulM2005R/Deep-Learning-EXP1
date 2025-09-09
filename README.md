@@ -1,17 +1,18 @@
-**Developing a Neural Network Regression Model**
+# Ex-1: Developing a Neural Network Regression Model
 
-**AIM**
+### AIM
 To develop a neural network regression model for the given dataset.
 
 
-**THEORY**
+### THEORY
 
 Regression problems involve predicting a continuous output variable based on input features. Traditional linear regression models often struggle with complex patterns in data. Neural networks, specifically feedforward neural networks, can capture these complex relationships by using multiple layers of neurons and activation functions. In this experiment, a neural network model is introduced with a single linear layer that learns the parameters weight and bias using gradient descent.
 
-**Neural Network Model**
-Include the neural network model diagram.
+### Neural Network Model
+<img width="822" height="674" alt="image" src="https://github.com/user-attachments/assets/64bb95ee-009b-4111-a27f-0d032e296627" />
 
-**DESIGN STEPS**
+
+## DESIGN STEPS
 
 **STEP 1: Generate Dataset**
 Create input values from 1 to 50 and add random noise to introduce variations in output values .
@@ -34,23 +35,63 @@ Plot the original dataset along with the learned linear model.
 **STEP 7: Make Predictions**
 Use the trained model to predict for a new input value .
 
-**PROGRAM**
+### PROGRAM
 
-**Name**:
+**Name:** Rahul M R
 
-**Register Number:**
+**Register Number:** 2305003005
+```
+from google.colab import auth
+import gspread
+from google.auth import default
+import pandas as pd
 
+from google.colab import auth
+import gspread
+from google.auth import default
+import pandas as pd
 
-class Model(nn.Module):
+rows = worksheet.get_all_values()
+df = pd.DataFrame(rows[1:], columns=rows[0])
+df=df.astype({'INPUT':'float'})
+df=df.astype({'OUTPUT':'float'})
+df.head()
 
-    def __init__(self, in_features, out_features):
-       
-        super().__init__()
-        
-        #Include your code here
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import MinMaxScaler
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
 
+X = df[['INPUT']].values
+y = df[['OUTPUT']].values
+X
 
+X_train,X_test,y_train,y_test = train_test_split(X,y,test_size = 0.33,random_state = 33)
+Scaler = MinMaxScaler()
+Scaler.fit(X_train)
+X_train1 = Scaler.transform(X_train)
 
+model=Sequential([
+    #Hidden ReLU Layers
+    Dense(units=5,activation='relu',input_shape=[1]),
+    Dense(units=3,activation='relu'),
+    #Linear Output Layer
+    Dense(units=1)
+])
+
+model.compile(optimizer='rmsprop',loss='mse')
+model.fit(X_train1,y_train,epochs=3000)
+
+loss= pd.DataFrame(model.history.history)
+loss.plot()
+
+X_test1 =Scaler.transform(X_test)
+model.evaluate(X_test1,y_test)
+
+X_n1=[[4]]
+X_n1_1=Scaler.transform(X_n1)
+model.predict(X_n1_1)
+```
 
 # Initialize the Model, Loss Function, and Optimizer
 
