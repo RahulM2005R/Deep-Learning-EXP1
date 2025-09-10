@@ -1,14 +1,14 @@
 # Ex-1: Developing a Neural Network Regression Model
 
-### AIM
+## AIM
 To develop a neural network regression model for the given dataset.
 
 
-### THEORY
+## THEORY
 
 Regression problems involve predicting a continuous output variable based on input features. Traditional linear regression models often struggle with complex patterns in data. Neural networks, specifically feedforward neural networks, can capture these complex relationships by using multiple layers of neurons and activation functions. In this experiment, a neural network model is introduced with a single linear layer that learns the parameters weight and bias using gradient descent.
 
-### Neural Network Model
+## Neural Network Model
 <img width="822" height="674" alt="image" src="https://github.com/user-attachments/assets/64bb95ee-009b-4111-a27f-0d032e296627" />
 
 
@@ -35,7 +35,7 @@ Plot the original dataset along with the learned linear model.
 **STEP 7: Make Predictions**
 Use the trained model to predict for a new input value .
 
-### PROGRAM
+## PROGRAM
 
 **Name:** Rahul M R
 
@@ -93,21 +93,32 @@ X_n1_1=Scaler.transform(X_n1)
 model.predict(X_n1_1)
 ```
 
-# Initialize the Model, Loss Function, and Optimizer
+
+**Dataset Information**
+
+<img width="538" height="453" alt="image" src="https://github.com/user-attachments/assets/1ac233e8-8c4e-4e77-bad1-ec660cc616ce" />
 
 
-Dataset Information
-Include screenshot of the generated data
+## OUTPUT
+
+**Training Loss Vs Iteration Plot:**
+
+<img width="560" height="413" alt="image" src="https://github.com/user-attachments/assets/9821da4c-c9c7-42fc-ac31-78e0649353e5" />
 
 
-**OUTPUT**
+**Epoch Training:**
 
-Training Loss Vs Iteration Plot Best Fit line plot Include your plot here
+<img width="1032" height="337" alt="image" src="https://github.com/user-attachments/assets/9e105828-173a-4026-a8d0-51d9587adb65" />
 
-**New Sample Data Prediction**
+**Test Data Root Mean Squared Error:**
 
-Include your sample input and output here
+<img width="768" height="66" alt="image" src="https://github.com/user-attachments/assets/c02b40d8-1760-4ef5-8898-adc106362c2d" />
 
-**RESULT**
+**New Sample Data Prediction:**
+
+<img width="641" height="65" alt="image" src="https://github.com/user-attachments/assets/5deb473c-7c52-425e-bab7-64684d0e621e" />
+
+
+## RESULT
 
 Thus, a neural network regression model was successfully developed and trained using PyTorch.
